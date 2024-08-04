@@ -1,0 +1,182 @@
+html, body {
+    background-color: #2b072c49;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2b072c;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    padding: 1em;
+}
+
+h2 {
+    color: #2b072c;
+    justify-content: center;
+    text-align: center;
+}
+
+p {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: rgba(255, 255, 255, 0);
+    margin: 0.5em 0;
+    padding: .25em;
+    border-radius: 5px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+footer {
+    background-color: #2b072c;
+    color: white;
+    text-align: center;
+    padding: .25em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+iframe {
+    width: 100%;
+}
+
+.custom-iframe {
+    border: 2px solid #000; /* Example border */
+    border-radius: 10px; /* Example rounded corners */
+    background-color: #f9f9f9; /* Example background color */
+}
+
+.custom-button {
+    background-color: none;
+    border: none;
+    border-style: none;
+    width: 100%; /* Ensure button takes full width available */
+    max-width: 300px; /* Optional: Limit button width */
+}
+
+.custom-button iframe {
+    pointer-events: none; /* Disable pointer events to prevent clicking inside iframe */
+}
+
+.searchCenter {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.pJustify {
+    text-align: center;
+    justify-content: center;
+}
+
+a {
+    background-color: none;
+    text-decoration: none;
+    color: white;
+}
+
+.iframe-container {
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Style the search button */
+.search-button {
+    background-color: #2b072c2a; /* Green background */
+    border: none;
+    color: white; /* White text */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Style the custom buttons for related artists */
+.custom-button {
+    background-color: #2b072c2a; /* Blue background */
+    border: none;
+    color: white; /* White text */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Style for links inside buttons */
+.custom-button a, .search-button a {
+    color: white; /* Ensure links have white text */
+    text-decoration: none;
+}
+
+/* Hover effect for buttons */
+.search-button:hover, .custom-button:hover {
+    background-color: #2b072c60; /* Darker green on hover for search button */
+}
+
+/* Hover effect for custom buttons */
+.custom-button:hover {
+    background-color: #2b072c60; /* Darker blue on hover for custom buttons */
+}
+
+.div1, .div2, .div3, .div4, .div5 {
+    background-color: #2b072c60;
+    position: inherit;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 5%;
+    padding: 5pt;
+}
+
+.div0 {
+    background-color: #2b072c60;
+    position: inherit;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+} 
+
+.space {
+    padding: 10pt;
+}
+
+.albumInfo {
+    padding-top: 20pt;
+    width: 100%;
+}
+
+.container {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}

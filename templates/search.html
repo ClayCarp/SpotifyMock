@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+<link rel="stylesheet" type="text/css" href="static/styles.css">
+
+{% block title %}Artist Information{% endblock %}
+
+{% block content %}
+    <div class="div0">
+        <h2>Search for Artist</h2>
+        <form class="searchCenter" action="{{ url_for('search') }}" method="post">
+            <input type="text" name="artist_name" placeholder="Enter artist name" required>
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>  
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    {% if artist %}
+        <div class="container">
+            <div>
+                <div class="space"></div>
+                <div class="div5">
+                    <h2>Artist Information</h2>
+                    <p class="pJustify"><strong>Name:</strong> {{ artist.name }}</p>
+                    <p class="pJustify"><strong>Followers:</strong> {{ artist.followers.total | comma }}</p>
+                    <p class="pJustify"><strong>Genres:</strong> {{ artist.genres | join(', ') }}</p>
+                </div>
+                
+                <div class="space"></div>
+                <div class="div1">
+                    <h2>Popular Songs</h2>
+                    <ul>
+                        {% for song in songs %}
+                            <li>
+                                <div class="iframe-container" data-id="{{ song.id }}" data-type="track">
+                                    <button class="custom-button" type="button">
+                                        {{ song.name }}
+                                    </button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="space"></div>
+                <div class="div2">
+                    <h2>Popular Albums</h2>
+                    <ul>
+                        {% for album in albums %}
+                            <li>
+                                <div class="iframe-container" data-id="{{ album.id }}" data-type="album">
+                                    <button class="custom-button" type="button">
+                                        {{ album.name }}
+                                    </button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="space"></div>
+                <div class="div3">
+                    <h2>Related Artists</h2>
+                    <ul>
+                        {% for related_artist in related_artists %}
+                            <li>
+                                <div class="iframe-container" data-id="{{ related_artist.id }}" data-type="artist">
+                                    <form action="{{ url_for('search') }}" method="post" style="display: inline;">
+                                        <input type="hidden" name="artist_name" value="{{ related_artist.name }}">
+                                        <button class="custom-button" type="submit">
+                                            {{ related_artist.name }}
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="space"></div>
+                <div class="div4">
+                    <h2>Popular Playlists</h2>
+                    <ul>
+                        {% for playlist in playlists %}
+                            <li>
+                                <div class="iframe-container" data-id="{{ playlist.id }}" data-type="playlist">
+                                    <button class="custom-button" type="button">
+                                        {{ playlist.name }}
+                                    </button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Initially empty div to display track, album, or playlist information -->
+            <div class="space"></div>
+            <div class="albumInfo" id="info-display"></div>
+        </div>
+
+        <p style="padding-bottom: 50px;"></p>
+    {% endif %}
+{% endblock %}

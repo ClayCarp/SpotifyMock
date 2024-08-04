@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Top Items{% endblock %}
+
+{% block content %}
+    <h2>Top Tracks</h2>
+    <ul>
+        {% for track in top_tracks %}
+            <li>{{ track.name }} by {{ track.artists | map(attribute='name') | join(', ') }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Top Artists</h2>
+    <ul>
+        {% for artist in top_artists %}
+            <li>{{ artist.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
